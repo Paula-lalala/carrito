@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import Link from 'next/link';
-import styles from './Productos.module.css'; // Importar el CSS modularizado
+import styles from './Productos.module.css';
 
 const Productos = () => {
   const [data, setData] = useState([]);
@@ -38,8 +38,41 @@ const Productos = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const getCategorias = async () => {
+      try {
+        const response = await fetch('https://fakestoreapi.com/products/categories');
+        const categoriasData = await response.json();
+        setCategorias(categoriasData);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    getCategorias();
+  }, []);
+
+  const filtrarPorCategoria = (categoria) => {
+    if (categoria === "all") {
+      setFilter(data);
+    } else {
+      setFilter(data.filter(producto => producto.category === categoria));
+    }
+  };
+
   return (
     <div className={styles.productosContainer}>
+      <div className="mb-3">
+        <h4>Selecciona una categoría:</h4>
+        <div className="btn-group" role="group">
+          <button type="button" className="btn btn-secondary" onClick={() => filtrarPorCategoria("all")}>All</button>
+          {categorias.map((categoria, index) => (
+            <button key={index} type="button" className="btn btn-secondary" onClick={() => filtrarPorCategoria(categoria)}>
+              {categoria}
+            </button>
+          ))}
+        </div>
+      </div>
       {loading ? (
         <div className={styles.loading}>Loading...</div>
       ) : (
@@ -52,9 +85,8 @@ const Productos = () => {
                   <h5 className={`card-title ${styles.productTitle}`}>{producto.title}</h5>
                   <p className={`card-text ${styles.productPrice}`}>${producto.price}</p>
                   <Link href={`/product/${producto.id}`}>
-                  <button className={`btn btn-primary ${styles.backButton}`}>Comprar ahora</button>
+                    <button className={`btn btn-primary ${styles.backButton}`}>Comprar ahora</button>
                   </Link>
-                  
                 </div>
               </div>
             </div>

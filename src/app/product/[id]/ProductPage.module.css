@@ -1,0 +1,44 @@
+.productPageContainer {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .productCard {
+    border: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .productImageContainer {
+    text-align: center;
+  }
+  
+  .productImage {
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .productDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .productBody {
+    padding: 20px;
+  }
+  
+  .productTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .productDescription {
+    color: #555;
+  }
+  
+  .productPrice {
+    color: #28a745;
+  }
+  
+    
+  

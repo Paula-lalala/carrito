@@ -1,0 +1,11 @@
+.navSection {
+    width: 100%;
+  }
+  
+  .navbar {
+    background-color: var(--color-tertiary);
+  }
+  
+  .navBrand {
+    color: var(--color-primary);
+  }

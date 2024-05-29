@@ -1,0 +1,23 @@
+.hero {
+    position: relative;
+  }
+  .heroCard {
+    background-color: var(--color-dark);
+  }
+  
+  .heroImage {
+    opacity: 0.8;
+  }
+  
+  .heroContent {
+    text-align: center;
+  }
+  
+  .heroTitle {
+    color: var(--color-white);
+  }
+  
+  .heroText {
+    color: var(--color-white);
+  }
+  

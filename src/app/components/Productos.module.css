@@ -1,0 +1,42 @@
+.productosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .loading {
+    font-size: 1.5em;
+    color: var(--color-primary);
+  }
+  
+  .producto {
+    margin-bottom: 1rem;
+  }
+  
+  .productCard {
+    border: 1px solid var(--color-light);
+  }
+  
+  .productImage {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .productBody {
+    padding: 1rem;
+  }
+  
+  .productTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .productPrice {
+    color: var(--color-success);
+  }
+  
+  .productButton {
+    background-color: var(--color-primary);
+    border: none;
+  }
+  

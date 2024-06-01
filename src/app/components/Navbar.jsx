@@ -1,19 +1,27 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import styles from './Navbar.module.css'; // Importar el CSS modularizado
+"use client"
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
+  const [carrito, setCarrito] = useState([]);
+
+  useEffect(() => {
+    const storedProducts = JSON.parse(sessionStorage.getItem("carrito")) || [];
+    if (storedProducts.length > 0) {
+      setCarrito(storedProducts);
+    }
+  }, []);
+
   return (
-    <section className={styles.navSection}>
-      <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
-        <div className="container">
-          <a className={`navbar-brand fw-bold fs-3 ${styles.navBrand}`} href="#">
-            ROPITAS Y ROPAS
-          </a>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <button className="btn btn-dark">
+            Carrito ({carrito.length})
+          </button>
         </div>
-      </nav>
-    </section>
+      </div>
+    </nav>
   );
 };
 
 export default Navbar;
-

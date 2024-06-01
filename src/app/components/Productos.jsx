@@ -52,6 +52,13 @@ const Productos = () => {
     getCategorias();
   }, []);
 
+  const saveItem = (producto) => {
+    const carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
+    carrito.push(producto);
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+    window.location.reload();
+  };
+
   const filtrarPorCategoria = (categoria) => {
     if (categoria === "all") {
       setFilter(data);
@@ -84,8 +91,11 @@ const Productos = () => {
                 <div className={`card-body ${styles.productBody}`}>
                   <h5 className={`card-title ${styles.productTitle}`}>{producto.title}</h5>
                   <p className={`card-text ${styles.productPrice}`}>${producto.price}</p>
+                  <Link href="#">
+                  <button onClick={() => saveItem(producto)} className={`btn btn-primary ${styles.backButton}`}>Compra ahora</button>
+                  </Link>
                   <Link href={`/product/${producto.id}`}>
-                    <button className={`btn btn-primary ${styles.backButton}`}>Comprar ahora</button>
+                    <button className={`btn ${styles.backButton}`}>Detalles del producto</button>
                   </Link>
                 </div>
               </div>
@@ -98,5 +108,3 @@ const Productos = () => {
 };
 
 export default Productos;
-
-

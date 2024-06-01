@@ -11,25 +11,25 @@ export default async function ProductPage({ params }) {
 
   return (
     <>
-      <div className={`d-flex justify-content-center ${styles.productPageContainer}`}>
-        <div className={`card my-5 py-5 ${styles.productCard}`}>
-          <div className="row g-0">
-            <div className={`col-md-6 ${styles.productImageContainer}`}>
+      <section className={`d-flex justify-content-center ${styles.productPageContainer}`}>
+        <section className={`card my-5 py-5 ${styles.productCard}`}>
+          <section className="row g-0">
+            <section className={`col-md-6 ${styles.productImageContainer}`}>
               <img src={product.image} className={`img-fluid rounded-start ${styles.productImage}`} alt={product.title} />
-            </div>
-            <div className={`col-md-6 ${styles.productDetails}`}>
-              <div className={`card-body ${styles.productBody}`}>
+            </section>
+            <section className={`col-md-6 ${styles.productDetails}`}>
+              <section className={`card-body ${styles.productBody}`}>
                 <h5 className={`card-title ${styles.productTitle}`}>{product.title}</h5>
                 <p className={`card-text ${styles.productDescription}`}>{product.description}</p>
                 <p className={`card-text ${styles.productPrice}`}>${product.price}</p>
                 <Link href="/" legacyBehavior>
                   <button className={`btn btn-primary ${styles.backButton}`}>Volver</button>
                 </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
     </>
   );
 }

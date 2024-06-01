@@ -68,27 +68,27 @@ const Productos = () => {
   };
 
   return (
-    <div className={styles.productosContainer}>
-      <div className="mb-3">
+    <section className={styles.productosContainer}>
+      <section className="mb-3">
         <h4>Selecciona una categoría:</h4>
-        <div className="btn-group" role="group">
+        <section className="btn-group" role="group">
           <button type="button" className="btn btn-secondary" onClick={() => filtrarPorCategoria("all")}>All</button>
           {categorias.map((categoria, index) => (
             <button key={index} type="button" className="btn btn-secondary" onClick={() => filtrarPorCategoria(categoria)}>
               {categoria}
             </button>
           ))}
-        </div>
-      </div>
+        </section>
+      </section>
       {loading ? (
-        <div className={styles.loading}>Loading...</div>
+        <section className={styles.loading}>Loading...</section>
       ) : (
-        <div className="row">
+        <section className="row">
           {filter.map((producto) => (
-            <div className={`col-md-3 ${styles.producto}`} key={producto.id}>
-              <div className={`card h-100 text-center p-4 ${styles.productCard}`}>
+            <section className={`col-md-3 ${styles.producto}`} key={producto.id}>
+              <section className={`card h-100 text-center p-4 ${styles.productCard}`}>
                 <img src={producto.image} className={`card-img-top ${styles.productImage}`} alt={producto.title} />
-                <div className={`card-body ${styles.productBody}`}>
+                <section className={`card-body ${styles.productBody}`}>
                   <h5 className={`card-title ${styles.productTitle}`}>{producto.title}</h5>
                   <p className={`card-text ${styles.productPrice}`}>${producto.price}</p>
                   <Link href="#">
@@ -97,13 +97,13 @@ const Productos = () => {
                   <Link href={`/product/${producto.id}`}>
                     <button className={`btn ${styles.backButton}`}>Detalles del producto</button>
                   </Link>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           ))}
-        </div>
+        </section>
       )}
-    </div>
+    </section>
   );
 };
 

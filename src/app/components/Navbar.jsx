@@ -13,13 +13,13 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <section className="container-fluid">
+        <section className="collapse navbar-collapse" id="navbarSupportedContent">
           <button className="btn btn-dark">
             Carrito ({carrito.length})
           </button>
-        </div>
-      </div>
+        </section>
+      </section>
     </nav>
   );
 };
